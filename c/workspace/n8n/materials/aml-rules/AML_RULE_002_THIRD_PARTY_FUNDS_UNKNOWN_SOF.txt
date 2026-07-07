@@ -1,0 +1,20 @@
+RULE ID: AML-RULE-002
+RULE NAME: Third-Party Funds / Unknown or Undocumented Source of Funds
+RISK LEVEL: HIGH
+
+DEFINITION
+Flag as suspicious if the customer indicates that funds are not their own, originate from multiple unrelated third parties, or cannot be explained and documented in a consistent way.
+
+TRIGGER CONDITIONS (TEXT INDICATORS)
+- Customer says funds come from friends, partners, associates, or clients without contracts/invoices.
+- Customer cannot identify senders/beneficiaries clearly.
+- Customer cannot provide documentation for source of funds (salary proof, invoices, contracts).
+- Customer says sources vary or are unknown.
+
+AML RATIONALE
+Third-party ownership and undocumented source of funds prevents KYC verification and is a core AML red flag.
+
+ACTION / OUTCOME
+- Increase risk rating.
+- Apply EDD.
+- Require documentary evidence of source of funds and transaction purpose.

@@ -1,0 +1,19 @@
+RULE ID: AML-RULE-003
+RULE NAME: Rapid Movement / Same-Day Forwarding / Cash-Out Pattern
+RISK LEVEL: HIGH
+
+DEFINITION
+Flag as suspicious if the customer expects to move money immediately after receiving it, especially if the stated plan is same-day forwarding or immediate cash withdrawal.
+
+TRIGGER CONDITIONS (TEXT INDICATORS)
+- Customer states they will forward funds shortly after receipt.
+- Customer states they will withdraw cash immediately after incoming transfers.
+- Customer indicates rapid movement is normal for their expected activity.
+
+AML RATIONALE
+Rapid movement is typical of layering and mule activity. Cash extraction is a high-risk laundering endpoint.
+
+ACTION / OUTCOME
+- Label as suspicious.
+- Escalate for EDD and transaction monitoring.
+- Request explanation and supporting documentation.

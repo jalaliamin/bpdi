@@ -1,0 +1,20 @@
+RULE ID: AML-RULE-005
+RULE NAME: Customer Profile vs Expected Activity Mismatch
+RISK LEVEL: MEDIUM to HIGH (depending on severity)
+
+DEFINITION
+Flag as suspicious if expected transaction volume, transfer frequency, or cross-border activity is much higher than the customer's stated employment, income, or economic profile. 
+
+TRIGGER CONDITIONS (TEXT INDICATORS)
+- Customer is unemployed or low-income but expects high monthly volume.
+- Customer states salary is unrelated to expected transfers.
+- Customer expects frequent transfers without a credible business explanation.
+
+
+AML RATIONALE
+Mismatch between customer profile and high expected activity is a standard AML risk indicator and may indicate mule usage or hidden third-party business.
+
+ACTION / OUTCOME
+- Increase risk score.
+- Request documentation (income proof, business documents).
+- Escalate if mismatch is significant.

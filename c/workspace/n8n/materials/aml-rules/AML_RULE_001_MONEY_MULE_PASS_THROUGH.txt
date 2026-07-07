@@ -1,0 +1,21 @@
+RULE ID: AML-RULE-001
+RULE NAME: Money Mule / Pass-Through Account Behavior
+RISK LEVEL: CRITICAL (auto-escalate)
+
+DEFINITION
+Flag as suspected money laundering if the customer states or implies they will receive funds and forward them to other persons/entities, acting as an intermediary rather than the final beneficiary.
+
+TRIGGER CONDITIONS (TEXT INDICATORS)
+- Customer says they will forward, redistribute, or send onward money received from others.
+- Customer describes themselves as an intermediary, channel, or middleman.
+- Customer indicates other people will use their account.
+- Customer indicates they will handle payments for friends/partners/associates.
+
+
+AML RATIONALE
+Pass-through behavior is a primary indicator of money mule activity and layering. This is strongly associated with laundering and fraud proceeds.
+
+ACTION / OUTCOME
+- Label as AML suspicious.
+- Escalate to Compliance / EDD.
+- Request proof of source of funds and proof of beneficiary purpose.

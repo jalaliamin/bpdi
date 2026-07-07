@@ -1,0 +1,19 @@
+RULE ID: AML-RULE-006
+RULE NAME: Multiple Countries / High-Risk Corridors with Vague Purpose
+RISK LEVEL: MEDIUM to HIGH
+
+DEFINITION
+Flag as suspicious if the customer expects cross-border transfers involving multiple jurisdictions (especially if described vaguely) without clear counterparties, contracts, or business justification.
+
+TRIGGER CONDITIONS (TEXT INDICATORS)
+- Customer lists several countries or says "multiple" countries.
+- Customer cannot explain counterparties or business reason for cross-border flows.
+- Customer expects frequent cross-border movement combined with other red flags.
+
+AML RATIONALE
+Cross-border complexity increases laundering risk and makes source of funds and beneficiary tracing more difficult.
+
+ACTION / OUTCOME
+- Increase risk rating.
+- Apply EDD if combined with other red flags.
+- Require documentation for counterparties and transaction purpose.

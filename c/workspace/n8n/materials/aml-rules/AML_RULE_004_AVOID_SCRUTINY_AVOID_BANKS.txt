@@ -1,0 +1,19 @@
+RULE ID: AML-RULE-004
+RULE NAME: Avoiding Scrutiny / Avoiding Banks / Avoiding Attention
+RISK LEVEL: CRITICAL
+
+DEFINITION
+Flag as suspected money laundering if the customer explicitly states that the purpose of the account or transfers is to avoid attention, scrutiny, or bank controls.
+
+TRIGGER CONDITIONS (TEXT INDICATORS)
+- Customer states the purpose is to avoid attention or scrutiny.
+- Customer states they prefer not to use banks directly.
+- Customer expresses intent to avoid monitoring.
+
+AML RATIONALE
+This indicates direct intent to evade AML controls and is strongly indicative of laundering behavior.
+
+ACTION / OUTCOME
+- Auto-escalate to Compliance immediately.
+- Label as AML suspicious.
+- Consider rejection or account closure according to bank policy.

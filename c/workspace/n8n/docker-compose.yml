@@ -1,0 +1,65 @@
+﻿name: bpdi
+
+services:
+  customer-postgres:
+    image: postgres:16
+    container_name: bpdi-customer-postgres
+    env_file: .env.customerdb
+    volumes:
+      - "C:/workspace/n8n/customer-pgdata:/var/lib/postgresql/data"
+      - "C:/workspace/n8n/customer-pg-init:/docker-entrypoint-initdb.d"
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+
+  smtp4dev:
+    image: rnwood/smtp4dev:latest
+    container_name: bpdi-smtp4dev
+    ports:
+      - "5001:80"
+      - "2525:25"
+      - "8143:143"
+    volumes:
+      - "C:/workspace/n8n/smtp4dev-data:/smtp4dev"
+    restart: unless-stopped
+
+  roundcube:
+    image: roundcube/roundcubemail:latest
+    container_name: bpdi-roundcube
+    depends_on:
+      - smtp4dev
+    environment:
+      ROUNDCUBEMAIL_DEFAULT_HOST: smtp4dev
+      ROUNDCUBEMAIL_DEFAULT_PORT: 143
+      ROUNDCUBEMAIL_SMTP_SERVER: smtp4dev
+      ROUNDCUBEMAIL_SMTP_PORT: 25
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:v1.16.3
+    container_name: bpdi-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - "C:/workspace/n8n/qdrant-data:/qdrant/storage"
+    restart: unless-stopped
+
+  n8n:
+    image: n8nio/n8n:2.7.1
+    container_name: bpdi-n8n
+    env_file: .env
+    depends_on:
+      - customer-postgres
+      - smtp4dev
+      - qdrant
+    ports:
+      - "5680:5678"
+    volumes:
+      - "C:/workspace/n8n/data:/home/node/.n8n"
+      - "C:/workspace/n8n/materials:/materials"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
