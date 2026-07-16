@@ -138,3 +138,285 @@
 [2026-07-16 18:30:37,677] 1550  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0305_netwithresources.pnml
 [2026-07-16 18:31:05,598] 29471  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
 [2026-07-16 18:31:05,598] 29471  INFO GUI_LOGGER: EXIT WoPeD
+[2026-07-16 18:36:43,019] 0  INFO GUI_LOGGER: INIT APPLICATION
+[2026-07-16 18:36:43,042] 23  INFO CORE_LOGGER: START INIT Application
+[2026-07-16 18:36:43,048] 29  INFO CONFIG_LOGGER: Setting default home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-16 18:36:43,049] 30  INFO CONFIG_LOGGER: Loading configuration from: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml.
+[2026-07-16 18:36:43,267] 248  INFO CONFIG_LOGGER: Setting Locale to en_US
+[2026-07-16 18:36:43,271] 252  INFO CONFIG_LOGGER: Setting home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-16 18:36:43,271] 252  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-16 18:36:43,283] 264  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-16 18:36:43,291] 272  WARN CONFIG_LOGGER: Configuration file not found: C:\Users\admin\.WoPeD-3.8.0\WoPeDmetrics.xml. Using built-in settings.
+[2026-07-16 18:36:43,308] 289  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-16 18:36:43,335] 316  INFO CORE_LOGGER: Look-And-Feel set to com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+[2026-07-16 18:36:43,663] 644  INFO GUI_LOGGER: END  INIT Application
+[2026-07-16 18:36:43,880] 861 DEBUG QUALANALYSIS_LOGGER: -> init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-16 18:36:43,891] 872 DEBUG QUALANALYSIS_LOGGER: <- init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-16 18:36:43,935] 916 DEBUG FILE_LOGGER: ##### START PNML Version (1.3.2) IMPORT #####
+[2026-07-16 18:36:44,100] 1081 DEBUG QUALANALYSIS_LOGGER: PT Handle Pairs calculated. (0 ms)
+[2026-07-16 18:36:44,100] 1081 DEBUG QUALANALYSIS_LOGGER: TP Handle Pairs calculated. (10 ms)
+[2026-07-16 18:36:44,281] 1262 DEBUG FILE_LOGGER:  ... Place (ID:p1) imported
+[2026-07-16 18:36:44,282] 1263 DEBUG FILE_LOGGER:  ... Place (ID:p2) imported
+[2026-07-16 18:36:44,282] 1263 DEBUG FILE_LOGGER:  ... Place (ID:p3) imported
+[2026-07-16 18:36:44,282] 1263 DEBUG FILE_LOGGER:  ... Place (ID:p4) imported
+[2026-07-16 18:36:44,282] 1263 DEBUG FILE_LOGGER:  ... Place (ID:p5) imported
+[2026-07-16 18:36:44,282] 1263 DEBUG FILE_LOGGER:  ... Place (ID:p6) imported
+[2026-07-16 18:36:44,283] 1264 DEBUG FILE_LOGGER:  ... Place (ID:p7) imported
+[2026-07-16 18:36:44,283] 1264 DEBUG FILE_LOGGER:  ... Place (ID:p8) imported
+[2026-07-16 18:36:44,283] 1264 DEBUG FILE_LOGGER:  ... Place (ID:p9) imported
+[2026-07-16 18:36:44,283] 1264 DEBUG FILE_LOGGER:  ... Place (ID:p10) imported
+[2026-07-16 18:36:44,284] 1265 DEBUG FILE_LOGGER:  ... Place (ID:p12) imported
+[2026-07-16 18:36:44,285] 1266 DEBUG FILE_LOGGER:  ... Place (ID:p11) imported
+[2026-07-16 18:36:44,292] 1273 DEBUG FILE_LOGGER:  ... Transition (ID:t4) imported 
+[2026-07-16 18:36:44,298] 1279 DEBUG FILE_LOGGER:  ... Transition (ID:t5) imported 
+[2026-07-16 18:36:44,298] 1279 DEBUG FILE_LOGGER:  ... Transition (ID:t6) imported 
+[2026-07-16 18:36:44,299] 1280 DEBUG FILE_LOGGER:  ... Transition (ID:t7) imported 
+[2026-07-16 18:36:44,299] 1280 DEBUG FILE_LOGGER:  ... Transition (ID:t8) imported 
+[2026-07-16 18:36:44,300] 1281 DEBUG FILE_LOGGER:  ... Transition (ID:t9) imported 
+[2026-07-16 18:36:44,300] 1281 DEBUG FILE_LOGGER:  ... Transition (ID:t10) imported 
+[2026-07-16 18:36:44,301] 1282 DEBUG FILE_LOGGER:  ... Transition (ID:t1) imported 
+[2026-07-16 18:36:44,301] 1282 DEBUG FILE_LOGGER:  ... Transition (ID:t2) imported 
+[2026-07-16 18:36:44,302] 1283 DEBUG FILE_LOGGER:  ... Transition (ID:t3) imported 
+[2026-07-16 18:36:44,309] 1290 DEBUG FILE_LOGGER:  ... Arc created: (ID:a33) t9 -> p12 
+[2026-07-16 18:36:44,310] 1291 DEBUG FILE_LOGGER:  ... Arc created: (ID:a32) t10 -> p12 
+[2026-07-16 18:36:44,310] 1291 DEBUG FILE_LOGGER:  ... Arc created: (ID:a15) p5 -> t5 
+[2026-07-16 18:36:44,310] 1291 DEBUG FILE_LOGGER:  ... Arc created: (ID:a17) p6 -> t6 
+[2026-07-16 18:36:44,310] 1291 DEBUG FILE_LOGGER:  ... Arc created: (ID:a16) t5 -> p7 
+[2026-07-16 18:36:44,311] 1292 DEBUG FILE_LOGGER:  ... Arc created: (ID:a18) t6 -> p8 
+[2026-07-16 18:36:44,311] 1292 DEBUG FILE_LOGGER:  ... Arc created: (ID:a26) t8 -> p10 
+[2026-07-16 18:36:44,311] 1292 DEBUG FILE_LOGGER:  ... Arc created: (ID:a25) p9 -> t8 
+[2026-07-16 18:36:44,311] 1292 DEBUG FILE_LOGGER:  ... Arc created: (ID:a27) p10 -> t9 
+[2026-07-16 18:36:44,312] 1293 DEBUG FILE_LOGGER:  ... Arc created: (ID:a1) p1 -> t1 
+[2026-07-16 18:36:44,312] 1293 DEBUG FILE_LOGGER:  ... Arc created: (ID:a2) t1 -> p2 
+[2026-07-16 18:36:44,312] 1293 DEBUG FILE_LOGGER:  ... Arc created: (ID:a3) p2 -> t2 
+[2026-07-16 18:36:44,312] 1293 DEBUG FILE_LOGGER:  ... Arc created: (ID:a4) t2 -> p3 
+[2026-07-16 18:36:44,312] 1293 DEBUG FILE_LOGGER:  ... Arc created: (ID:a31) p11 -> t10 
+[2026-07-16 18:36:44,313] 1294 DEBUG FILE_LOGGER:  ... Arc created: (ID:a9) p4 -> t4 
+[2026-07-16 18:36:44,313] 1294 DEBUG FILE_LOGGER:  ... Arc created: (ID:a11) t4 -> p5 
+[2026-07-16 18:36:44,314] 1295 DEBUG FILE_LOGGER:  ... Arc created: (ID:a13) t4 -> p6 
+[2026-07-16 18:36:44,314] 1295 DEBUG FILE_LOGGER:  ... Arc created: (ID:a20) p8 -> t7 
+[2026-07-16 18:36:44,314] 1295 DEBUG FILE_LOGGER:  ... Arc created: (ID:a19) p7 -> t7 
+[2026-07-16 18:36:44,314] 1295 DEBUG FILE_LOGGER:  ... Arc created: (ID:a23) t7 -> p9 
+[2026-07-16 18:36:44,315] 1296 DEBUG FILE_LOGGER:  ... Arc created: (ID:a5) p3 -> t3 
+[2026-07-16 18:36:44,315] 1296 DEBUG FILE_LOGGER:  ... Arc created: (ID:a7) t3 -> p4 
+[2026-07-16 18:36:44,315] 1296 DEBUG FILE_LOGGER:  ... Arc created: (ID:a28) t3 -> p11 
+[2026-07-16 18:36:44,315] 1296 DEBUG FILE_LOGGER:  ... Arc created: (ID:a29) p3 -> t3 
+[2026-07-16 18:36:44,472] 1453 DEBUG EDITOR_LOGGER: Net updated. (11 ms)
+[2026-07-16 18:36:44,479] 1460 DEBUG EDITOR_LOGGER: Net updated. (6 ms)
+[2026-07-16 18:36:44,480] 1461 DEBUG FILE_LOGGER: ##### END PNML IMPORT Version (1.3.2) ##### (544 ms)
+[2026-07-16 18:36:44,483] 1464  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-16 18:36:44,483] 1464  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0305_netwithprobablity.pnml
+[2026-07-16 18:37:41,510] 58491 DEBUG EDITOR_LOGGER: Net updated. (4 ms)
+[2026-07-16 18:37:51,052] 68033 DEBUG EDITOR_LOGGER: Net updated. (5 ms)
+[2026-07-16 18:37:52,485] 69466 DEBUG FILE_LOGGER: ##### START PNML EXPORT #####
+[2026-07-16 18:37:52,499] 69480 DEBUG FILE_LOGGER:    ... Setting InnerTransitions for Operator (ID:t4)
+[2026-07-16 18:37:52,501] 69482 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t4) set
+[2026-07-16 18:37:52,501] 69482 DEBUG FILE_LOGGER:    ... Transition (ID:t4_op_1) set
+[2026-07-16 18:37:52,502] 69483 DEBUG FILE_LOGGER:    ... InnerTransitions set.
+[2026-07-16 18:37:52,502] 69483 DEBUG FILE_LOGGER:    ... Place (ID:p1) set
+[2026-07-16 18:37:52,502] 69483 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t5) set
+[2026-07-16 18:37:52,502] 69483 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t5) set
+[2026-07-16 18:37:52,503] 69484 DEBUG FILE_LOGGER:    ... Transition (ID:t5) set
+[2026-07-16 18:37:52,503] 69484 DEBUG FILE_LOGGER:    ... Place (ID:p2) set
+[2026-07-16 18:37:52,503] 69484 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t6) set
+[2026-07-16 18:37:52,503] 69484 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t6) set
+[2026-07-16 18:37:52,504] 69485 DEBUG FILE_LOGGER:    ... Transition (ID:t6) set
+[2026-07-16 18:37:52,504] 69485 DEBUG FILE_LOGGER:    ... Place (ID:p3) set
+[2026-07-16 18:37:52,504] 69485 DEBUG FILE_LOGGER:    ... Setting InnerTransitions for Operator (ID:t7)
+[2026-07-16 18:37:52,504] 69485 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t7) set
+[2026-07-16 18:37:52,504] 69485 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t7) set
+[2026-07-16 18:37:52,504] 69485 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t7) set
+[2026-07-16 18:37:52,508] 69489 DEBUG FILE_LOGGER:    ... Transition (ID:t7_op_1) set
+[2026-07-16 18:37:52,509] 69490 DEBUG FILE_LOGGER:    ... InnerTransitions set.
+[2026-07-16 18:37:52,509] 69490 DEBUG FILE_LOGGER:    ... Place (ID:p4) set
+[2026-07-16 18:37:52,510] 69491 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t8) set
+[2026-07-16 18:37:52,510] 69491 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t8) set
+[2026-07-16 18:37:52,510] 69491 DEBUG FILE_LOGGER:    ... Transition (ID:t8) set
+[2026-07-16 18:37:52,510] 69491 DEBUG FILE_LOGGER:    ... Place (ID:p5) set
+[2026-07-16 18:37:52,511] 69492 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t9) set
+[2026-07-16 18:37:52,512] 69493 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t9) set
+[2026-07-16 18:37:52,512] 69493 DEBUG FILE_LOGGER:    ... Transition (ID:t9) set
+[2026-07-16 18:37:52,512] 69493 DEBUG FILE_LOGGER:    ... Place (ID:p6) set
+[2026-07-16 18:37:52,513] 69494 DEBUG FILE_LOGGER:    ... Place (ID:p7) set
+[2026-07-16 18:37:52,513] 69494 DEBUG FILE_LOGGER:    ... Place (ID:p8) set
+[2026-07-16 18:37:52,513] 69494 DEBUG FILE_LOGGER:    ... Place (ID:p9) set
+[2026-07-16 18:37:52,513] 69494 DEBUG FILE_LOGGER:    ... Place (ID:p10) set
+[2026-07-16 18:37:52,514] 69495 DEBUG FILE_LOGGER:    ... Place (ID:p12) set
+[2026-07-16 18:37:52,514] 69495 DEBUG FILE_LOGGER:    ... Place (ID:p11) set
+[2026-07-16 18:37:52,516] 69497 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t10) set
+[2026-07-16 18:37:52,516] 69497 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t10) set
+[2026-07-16 18:37:52,516] 69497 DEBUG FILE_LOGGER:    ... Transition (ID:t10) set
+[2026-07-16 18:37:52,517] 69498 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t1) set
+[2026-07-16 18:37:52,517] 69498 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t1) set
+[2026-07-16 18:37:52,518] 69499 DEBUG FILE_LOGGER:    ... Transition (ID:t1) set
+[2026-07-16 18:37:52,518] 69499 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t2) set
+[2026-07-16 18:37:52,518] 69499 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t2) set
+[2026-07-16 18:37:52,518] 69499 DEBUG FILE_LOGGER:    ... Transition (ID:t2) set
+[2026-07-16 18:37:52,518] 69499 DEBUG FILE_LOGGER:    ... Setting InnerTransitions for Operator (ID:t3)
+[2026-07-16 18:37:52,518] 69499 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t3) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t3) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t3) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Transition (ID:t3_op_1) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t3) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t3) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t3) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... Transition (ID:t3_op_2) set
+[2026-07-16 18:37:52,519] 69500 DEBUG FILE_LOGGER:    ... InnerTransitions set.
+[2026-07-16 18:37:52,520] 69501 DEBUG FILE_LOGGER:    ... Arc (ID:a33( t9 -> p12) set
+[2026-07-16 18:37:52,521] 69502 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,521] 69502 DEBUG FILE_LOGGER:    ... Arc (ID:a32( t10 -> p12) set
+[2026-07-16 18:37:52,521] 69502 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,522] 69503 DEBUG FILE_LOGGER:    ... Arc (ID:a15( p5 -> t5) set
+[2026-07-16 18:37:52,522] 69503 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,522] 69503 DEBUG FILE_LOGGER:    ... Arc (ID:a26( t8 -> p10) set
+[2026-07-16 18:37:52,522] 69503 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,522] 69503 DEBUG FILE_LOGGER:    ... Arc (ID:a25( p9 -> t8) set
+[2026-07-16 18:37:52,522] 69503 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER:    ... Arc (ID:a17( p6 -> t6) set
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER:    ... Arc (ID:a16( t5 -> p7) set
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER:    ... Arc (ID:a27( p10 -> t9) set
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER:    ... Arc (ID:a18( t6 -> p8) set
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER:    ... Arc (ID:a1( p1 -> t1) set
+[2026-07-16 18:37:52,523] 69504 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER:    ... Arc (ID:a2( t1 -> p2) set
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER:    ... Arc (ID:a3( p2 -> t2) set
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER:    ... Arc (ID:a4( t2 -> p3) set
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER:    ... Arc (ID:a31( p11 -> t10) set
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER:    ... Arc (ID:a10( p7 -> t7_op_1) set
+[2026-07-16 18:37:52,524] 69505 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER:    ... Arc (ID:a12( t7_op_1 -> p9) set
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER:    ... Arc (ID:a8( p8 -> t7_op_1) set
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER:    ... Arc (ID:a22( t3_op_2 -> p11) set
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER:    ... Arc (ID:a21( t3_op_1 -> p4) set
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER:    ... Arc (ID:a24( p3 -> t3_op_2) set
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,525] 69506 DEBUG FILE_LOGGER:    ... Arc (ID:a14( p3 -> t3_op_1) set
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER:    ... Arc (ID:a5( p4 -> t4_op_1) set
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER:    ... Arc (ID:a6( t4_op_1 -> p5) set
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER:    ... Arc (ID:a7( t4_op_1 -> p6) set
+[2026-07-16 18:37:52,526] 69507 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:37:52,547] 69528 DEBUG FILE_LOGGER: ##### END PNML EXPORT ##### (62 ms)
+[2026-07-16 18:37:52,547] 69528  INFO FILE_LOGGER: Petrinet saved in file: C:\workspace\bpdi\docs\0305_netwithprobablity.pnml
+[2026-07-16 18:37:52,548] 69529  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-16 18:38:17,398] 94379 DEBUG FILE_LOGGER: ##### START PNML EXPORT #####
+[2026-07-16 18:38:17,399] 94380 DEBUG FILE_LOGGER:    ... Setting InnerTransitions for Operator (ID:t4)
+[2026-07-16 18:38:17,400] 94381 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t4) set
+[2026-07-16 18:38:17,400] 94381 DEBUG FILE_LOGGER:    ... Transition (ID:t4_op_1) set
+[2026-07-16 18:38:17,400] 94381 DEBUG FILE_LOGGER:    ... InnerTransitions set.
+[2026-07-16 18:38:17,400] 94381 DEBUG FILE_LOGGER:    ... Place (ID:p1) set
+[2026-07-16 18:38:17,400] 94381 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t5) set
+[2026-07-16 18:38:17,400] 94381 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t5) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Transition (ID:t5) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Place (ID:p2) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t6) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t6) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Transition (ID:t6) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Place (ID:p3) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Setting InnerTransitions for Operator (ID:t7)
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t7) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t7) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t7) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Transition (ID:t7_op_1) set
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... InnerTransitions set.
+[2026-07-16 18:38:17,401] 94382 DEBUG FILE_LOGGER:    ... Place (ID:p4) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t8) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t8) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Transition (ID:t8) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p5) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t9) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t9) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Transition (ID:t9) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p6) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p7) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p8) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p9) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p10) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p12) set
+[2026-07-16 18:38:17,402] 94383 DEBUG FILE_LOGGER:    ... Place (ID:p11) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t10) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t10) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Transition (ID:t10) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t1) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t1) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Transition (ID:t1) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t2) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t2) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Transition (ID:t2) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Setting InnerTransitions for Operator (ID:t3)
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t3) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t3) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t3) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Transition (ID:t3_op_1) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Operator for Transition (ID:t3) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t3) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t3) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... Transition (ID:t3_op_2) set
+[2026-07-16 18:38:17,403] 94384 DEBUG FILE_LOGGER:    ... InnerTransitions set.
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER:    ... Arc (ID:a33( t9 -> p12) set
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER:    ... Arc (ID:a32( t10 -> p12) set
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER:    ... Arc (ID:a15( p5 -> t5) set
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER:    ... Arc (ID:a26( t8 -> p10) set
+[2026-07-16 18:38:17,404] 94385 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,405] 94386 DEBUG FILE_LOGGER:    ... Arc (ID:a25( p9 -> t8) set
+[2026-07-16 18:38:17,405] 94386 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,405] 94386 DEBUG FILE_LOGGER:    ... Arc (ID:a17( p6 -> t6) set
+[2026-07-16 18:38:17,405] 94386 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,405] 94386 DEBUG FILE_LOGGER:    ... Arc (ID:a16( t5 -> p7) set
+[2026-07-16 18:38:17,405] 94386 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,406] 94387 DEBUG FILE_LOGGER:    ... Arc (ID:a27( p10 -> t9) set
+[2026-07-16 18:38:17,406] 94387 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,406] 94387 DEBUG FILE_LOGGER:    ... Arc (ID:a18( t6 -> p8) set
+[2026-07-16 18:38:17,406] 94387 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,406] 94387 DEBUG FILE_LOGGER:    ... Arc (ID:a1( p1 -> t1) set
+[2026-07-16 18:38:17,406] 94387 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,408] 94389 DEBUG FILE_LOGGER:    ... Arc (ID:a2( t1 -> p2) set
+[2026-07-16 18:38:17,408] 94389 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,408] 94389 DEBUG FILE_LOGGER:    ... Arc (ID:a3( p2 -> t2) set
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER:    ... Arc (ID:a4( t2 -> p3) set
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER:    ... Arc (ID:a31( p11 -> t10) set
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER:    ... Arc (ID:a10( p7 -> t7_op_1) set
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER:    ... Arc (ID:a12( t7_op_1 -> p9) set
+[2026-07-16 18:38:17,409] 94390 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER:    ... Arc (ID:a8( p8 -> t7_op_1) set
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER:    ... Arc (ID:a22( t3_op_2 -> p11) set
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER:    ... Arc (ID:a21( t3_op_1 -> p4) set
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER:    ... Arc (ID:a24( p3 -> t3_op_2) set
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER:    ... Arc (ID:a14( p3 -> t3_op_1) set
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,410] 94391 DEBUG FILE_LOGGER:    ... Arc (ID:a5( p4 -> t4_op_1) set
+[2026-07-16 18:38:17,411] 94392 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,411] 94392 DEBUG FILE_LOGGER:    ... Arc (ID:a6( t4_op_1 -> p5) set
+[2026-07-16 18:38:17,411] 94392 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,411] 94392 DEBUG FILE_LOGGER:    ... Arc (ID:a7( t4_op_1 -> p6) set
+[2026-07-16 18:38:17,411] 94392 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-16 18:38:17,419] 94400 DEBUG FILE_LOGGER: ##### END PNML EXPORT ##### (21 ms)
+[2026-07-16 18:38:17,419] 94400  INFO FILE_LOGGER: Petrinet saved in file: C:\workspace\bpdi\docs\0305_netwithprobablity.pnml
+[2026-07-16 18:38:17,420] 94401  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-16 18:38:57,616] 134597  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
+[2026-07-16 18:38:57,616] 134597  INFO GUI_LOGGER: EXIT WoPeD
