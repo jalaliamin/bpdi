@@ -70,3 +70,5 @@
 [2026-07-20 13:58:33,176] 1343  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0306_1_task_composition_tobe.pnml
 [2026-07-20 13:59:00,204] 28371 DEBUG TRANSLATIONS_LOGGER: Resource not found: QuantAna.Simulation.TooTip.Details
 [2026-07-20 13:59:02,981] 31148  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-20 14:01:15,760] 163927  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
+[2026-07-20 14:01:15,760] 163927  INFO GUI_LOGGER: EXIT WoPeD
