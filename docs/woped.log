@@ -717,3 +717,196 @@
 [2026-07-21 12:44:54,391] 97620  INFO QUANTANA_LOGGER: Simulation started...
 [2026-07-21 12:45:26,453] 129682  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
 [2026-07-21 12:45:26,453] 129682  INFO GUI_LOGGER: EXIT WoPeD
+[2026-07-21 13:03:04,904] 0  INFO GUI_LOGGER: INIT APPLICATION
+[2026-07-21 13:03:04,930] 26  INFO CORE_LOGGER: START INIT Application
+[2026-07-21 13:03:04,934] 30  INFO CONFIG_LOGGER: Setting default home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:03:04,934] 30  INFO CONFIG_LOGGER: Loading configuration from: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml.
+[2026-07-21 13:03:05,150] 246  INFO CONFIG_LOGGER: Setting Locale to en_US
+[2026-07-21 13:03:05,153] 249  INFO CONFIG_LOGGER: Setting home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:03:05,153] 249  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-21 13:03:05,153] 249  INFO CONFIG_LOGGER: Setting current working directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:03:05,167] 263  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:03:05,173] 269  WARN CONFIG_LOGGER: Configuration file not found: C:\Users\admin\.WoPeD-3.8.0\WoPeDmetrics.xml. Using built-in settings.
+[2026-07-21 13:03:05,192] 288  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:03:05,218] 314  INFO CORE_LOGGER: Look-And-Feel set to com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+[2026-07-21 13:03:05,570] 666  INFO GUI_LOGGER: END  INIT Application
+[2026-07-21 13:03:05,846] 942 DEBUG QUALANALYSIS_LOGGER: -> init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:03:05,859] 955 DEBUG QUALANALYSIS_LOGGER: <- init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:03:05,910] 1006 DEBUG FILE_LOGGER: ##### START PNML Version (1.3.2) IMPORT #####
+[2026-07-21 13:03:06,111] 1207 DEBUG QUALANALYSIS_LOGGER: PT Handle Pairs calculated. (0 ms)
+[2026-07-21 13:03:06,111] 1207 DEBUG QUALANALYSIS_LOGGER: TP Handle Pairs calculated. (8 ms)
+[2026-07-21 13:03:06,322] 1418 DEBUG FILE_LOGGER:  ... Place (ID:p1) imported
+[2026-07-21 13:03:06,323] 1419 DEBUG FILE_LOGGER:  ... Place (ID:p2) imported
+[2026-07-21 13:03:06,323] 1419 DEBUG FILE_LOGGER:  ... Place (ID:p3) imported
+[2026-07-21 13:03:06,337] 1433 DEBUG FILE_LOGGER:  ... Transition (ID:t1) imported 
+[2026-07-21 13:03:06,337] 1433 DEBUG FILE_LOGGER:  ... Transition (ID:t3) imported 
+[2026-07-21 13:03:06,347] 1443 DEBUG FILE_LOGGER:  ... Arc created: (ID:a1) p1 -> t1 
+[2026-07-21 13:03:06,347] 1443 DEBUG FILE_LOGGER:  ... Arc created: (ID:a2) t1 -> p2 
+[2026-07-21 13:03:06,347] 1443 DEBUG FILE_LOGGER:  ... Arc created: (ID:a3) p2 -> t3 
+[2026-07-21 13:03:06,348] 1444 DEBUG FILE_LOGGER:  ... Arc created: (ID:a7) t3 -> p3 
+[2026-07-21 13:03:06,384] 1480 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:03:06,386] 1482 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:03:06,387] 1483 DEBUG FILE_LOGGER: ##### END PNML IMPORT Version (1.3.2) ##### (477 ms)
+[2026-07-21 13:03:06,390] 1486  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-21 13:03:06,390] 1486  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0306_6_task_automation_asis.pnml
+[2026-07-21 13:03:14,449] 9545 DEBUG EDITOR_LOGGER: Net updated. (4 ms)
+[2026-07-21 13:03:15,683] 10779 DEBUG EDITOR_LOGGER: Net updated. (2 ms)
+[2026-07-21 13:03:19,348] 14444 DEBUG EDITOR_LOGGER: Net updated. (2 ms)
+[2026-07-21 13:03:23,375] 18471 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:03:24,479] 19575 DEBUG EDITOR_LOGGER: Net updated. (2 ms)
+[2026-07-21 13:03:26,749] 21845 DEBUG FILE_LOGGER: ##### START PNML EXPORT #####
+[2026-07-21 13:03:26,799] 21895 DEBUG FILE_LOGGER:    ... Place (ID:p1) set
+[2026-07-21 13:03:26,800] 21896 DEBUG FILE_LOGGER:    ... Place (ID:p2) set
+[2026-07-21 13:03:26,801] 21897 DEBUG FILE_LOGGER:    ... Place (ID:p3) set
+[2026-07-21 13:03:26,810] 21906 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t1) set
+[2026-07-21 13:03:26,813] 21909 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t1) set
+[2026-07-21 13:03:26,814] 21910 DEBUG FILE_LOGGER:    ... Transition (ID:t1) set
+[2026-07-21 13:03:26,814] 21910 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t3) set
+[2026-07-21 13:03:26,814] 21910 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t3) set
+[2026-07-21 13:03:26,814] 21910 DEBUG FILE_LOGGER:    ... Transition (ID:t3) set
+[2026-07-21 13:03:26,815] 21911 DEBUG FILE_LOGGER:    ... Arc (ID:a1( p1 -> t1) set
+[2026-07-21 13:03:26,816] 21912 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:03:26,817] 21913 DEBUG FILE_LOGGER:    ... Arc (ID:a2( t1 -> p2) set
+[2026-07-21 13:03:26,817] 21913 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:03:26,817] 21913 DEBUG FILE_LOGGER:    ... Arc (ID:a3( p2 -> t3) set
+[2026-07-21 13:03:26,817] 21913 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:03:26,817] 21913 DEBUG FILE_LOGGER:    ... Arc (ID:a7( t3 -> p3) set
+[2026-07-21 13:03:26,817] 21913 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:03:26,839] 21935 DEBUG FILE_LOGGER: ##### END PNML EXPORT ##### (90 ms)
+[2026-07-21 13:03:26,839] 21935  INFO FILE_LOGGER: Petrinet saved in file: C:\workspace\bpdi\docs\0306_6_task_automation_asis.pnml
+[2026-07-21 13:03:26,840] 21936  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-21 13:03:51,386] 46482 DEBUG TRANSLATIONS_LOGGER: Resource not found: QuantAna.Simulation.TooTip.Details
+[2026-07-21 13:03:52,844] 47940  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-21 13:04:38,057] 93153  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-21 13:04:47,912] 103008  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
+[2026-07-21 13:04:47,912] 103008  INFO GUI_LOGGER: EXIT WoPeD
+[2026-07-21 13:04:54,455] 0  INFO GUI_LOGGER: INIT APPLICATION
+[2026-07-21 13:04:54,482] 27  INFO CORE_LOGGER: START INIT Application
+[2026-07-21 13:04:54,485] 30  INFO CONFIG_LOGGER: Setting default home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:04:54,487] 32  INFO CONFIG_LOGGER: Loading configuration from: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml.
+[2026-07-21 13:04:54,693] 238  INFO CONFIG_LOGGER: Setting Locale to en_US
+[2026-07-21 13:04:54,696] 241  INFO CONFIG_LOGGER: Setting home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:04:54,697] 242  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-21 13:04:54,697] 242  INFO CONFIG_LOGGER: Setting current working directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:04:54,710] 255  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:04:54,720] 265  WARN CONFIG_LOGGER: Configuration file not found: C:\Users\admin\.WoPeD-3.8.0\WoPeDmetrics.xml. Using built-in settings.
+[2026-07-21 13:04:54,738] 283  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:04:54,768] 313  INFO CORE_LOGGER: Look-And-Feel set to com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+[2026-07-21 13:04:55,162] 707  INFO GUI_LOGGER: END  INIT Application
+[2026-07-21 13:04:55,380] 925 DEBUG QUALANALYSIS_LOGGER: -> init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:04:55,392] 937 DEBUG QUALANALYSIS_LOGGER: <- init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:04:55,438] 983 DEBUG FILE_LOGGER: ##### START PNML Version (1.3.2) IMPORT #####
+[2026-07-21 13:04:55,594] 1139 DEBUG QUALANALYSIS_LOGGER: PT Handle Pairs calculated. (0 ms)
+[2026-07-21 13:04:55,594] 1139 DEBUG QUALANALYSIS_LOGGER: TP Handle Pairs calculated. (10 ms)
+[2026-07-21 13:04:55,785] 1330 DEBUG FILE_LOGGER:  ... Place (ID:p1) imported
+[2026-07-21 13:04:55,786] 1331 DEBUG FILE_LOGGER:  ... Place (ID:p2) imported
+[2026-07-21 13:04:55,786] 1331 DEBUG FILE_LOGGER:  ... Place (ID:p3) imported
+[2026-07-21 13:04:55,797] 1342 DEBUG FILE_LOGGER:  ... Transition (ID:t1) imported 
+[2026-07-21 13:04:55,798] 1343 DEBUG FILE_LOGGER:  ... Transition (ID:t3) imported 
+[2026-07-21 13:04:55,806] 1351 DEBUG FILE_LOGGER:  ... Arc created: (ID:a1) p1 -> t1 
+[2026-07-21 13:04:55,807] 1352 DEBUG FILE_LOGGER:  ... Arc created: (ID:a2) t1 -> p2 
+[2026-07-21 13:04:55,807] 1352 DEBUG FILE_LOGGER:  ... Arc created: (ID:a3) p2 -> t3 
+[2026-07-21 13:04:55,808] 1353 DEBUG FILE_LOGGER:  ... Arc created: (ID:a7) t3 -> p3 
+[2026-07-21 13:04:55,854] 1399 DEBUG EDITOR_LOGGER: Net updated. (2 ms)
+[2026-07-21 13:04:55,856] 1401 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:04:55,856] 1401 DEBUG FILE_LOGGER: ##### END PNML IMPORT Version (1.3.2) ##### (418 ms)
+[2026-07-21 13:04:55,859] 1404  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-21 13:04:55,859] 1404  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0306_6_task_automation_asis.pnml
+[2026-07-21 13:05:04,786] 10331  INFO QUANTANA_LOGGER: Epsilon: 0.001
+[2026-07-21 13:05:06,682] 12227  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-21 13:05:07,227] 12772 DEBUG TRANSLATIONS_LOGGER: Resource not found: QuantAna.Simulation.TooTip.Details
+[2026-07-21 13:05:11,735] 17280  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-21 13:05:43,702] 49247  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
+[2026-07-21 13:05:43,703] 49248  INFO GUI_LOGGER: EXIT WoPeD
+[2026-07-21 13:05:46,672] 1  INFO GUI_LOGGER: INIT APPLICATION
+[2026-07-21 13:05:46,696] 25  INFO CORE_LOGGER: START INIT Application
+[2026-07-21 13:05:46,704] 33  INFO CONFIG_LOGGER: Setting default home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:05:46,704] 33  INFO CONFIG_LOGGER: Loading configuration from: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml.
+[2026-07-21 13:05:46,923] 252  INFO CONFIG_LOGGER: Setting Locale to en_US
+[2026-07-21 13:05:46,926] 255  INFO CONFIG_LOGGER: Setting home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:05:46,926] 255  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-21 13:05:46,939] 268  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:05:46,947] 276  WARN CONFIG_LOGGER: Configuration file not found: C:\Users\admin\.WoPeD-3.8.0\WoPeDmetrics.xml. Using built-in settings.
+[2026-07-21 13:05:46,966] 295  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:05:46,993] 322  INFO CORE_LOGGER: Look-And-Feel set to com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+[2026-07-21 13:05:47,337] 666  INFO GUI_LOGGER: END  INIT Application
+[2026-07-21 13:05:47,577] 906 DEBUG QUALANALYSIS_LOGGER: -> init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:05:47,585] 914 DEBUG QUALANALYSIS_LOGGER: <- init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:05:47,636] 965 DEBUG FILE_LOGGER: ##### START PNML Version (1.3.2) IMPORT #####
+[2026-07-21 13:05:47,793] 1122 DEBUG QUALANALYSIS_LOGGER: PT Handle Pairs calculated. (0 ms)
+[2026-07-21 13:05:47,793] 1122 DEBUG QUALANALYSIS_LOGGER: TP Handle Pairs calculated. (9 ms)
+[2026-07-21 13:05:47,976] 1305 DEBUG FILE_LOGGER:  ... Place (ID:p1) imported
+[2026-07-21 13:05:47,976] 1305 DEBUG FILE_LOGGER:  ... Place (ID:p2) imported
+[2026-07-21 13:05:47,976] 1305 DEBUG FILE_LOGGER:  ... Place (ID:p3) imported
+[2026-07-21 13:05:47,987] 1316 DEBUG FILE_LOGGER:  ... Transition (ID:t1) imported 
+[2026-07-21 13:05:47,987] 1316 DEBUG FILE_LOGGER:  ... Transition (ID:t2) imported 
+[2026-07-21 13:05:47,997] 1326 DEBUG FILE_LOGGER:  ... Arc created: (ID:a1) p1 -> t1 
+[2026-07-21 13:05:47,998] 1327 DEBUG FILE_LOGGER:  ... Arc created: (ID:a2) t1 -> p2 
+[2026-07-21 13:05:47,998] 1327 DEBUG FILE_LOGGER:  ... Arc created: (ID:a3) p2 -> t2 
+[2026-07-21 13:05:47,998] 1327 DEBUG FILE_LOGGER:  ... Arc created: (ID:a4) t2 -> p3 
+[2026-07-21 13:05:48,048] 1377 DEBUG EDITOR_LOGGER: Net updated. (2 ms)
+[2026-07-21 13:05:48,050] 1379 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:05:48,050] 1379 DEBUG FILE_LOGGER: ##### END PNML IMPORT Version (1.3.2) ##### (413 ms)
+[2026-07-21 13:05:48,053] 1382  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-21 13:05:48,053] 1382  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0306_6_task_automation_tobe.pnml
+[2026-07-21 13:05:51,400] 4729 DEBUG EDITOR_LOGGER: Net updated. (2 ms)
+[2026-07-21 13:05:53,252] 6581 DEBUG FILE_LOGGER: ##### START PNML EXPORT #####
+[2026-07-21 13:05:53,279] 6608 DEBUG FILE_LOGGER:    ... Place (ID:p1) set
+[2026-07-21 13:05:53,279] 6608 DEBUG FILE_LOGGER:    ... Place (ID:p2) set
+[2026-07-21 13:05:53,280] 6609 DEBUG FILE_LOGGER:    ... Place (ID:p3) set
+[2026-07-21 13:05:53,283] 6612 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t1) set
+[2026-07-21 13:05:53,284] 6613 DEBUG FILE_LOGGER:    ... Resource for Transition (ID:t1) set
+[2026-07-21 13:05:53,284] 6613 DEBUG FILE_LOGGER:    ... Transition (ID:t1) set
+[2026-07-21 13:05:53,284] 6613 DEBUG FILE_LOGGER:    ... Trigger for Transition (ID:t2) set
+[2026-07-21 13:05:53,284] 6613 DEBUG FILE_LOGGER:    ... Transition (ID:t2) set
+[2026-07-21 13:05:53,285] 6614 DEBUG FILE_LOGGER:    ... Arc (ID:a1( p1 -> t1) set
+[2026-07-21 13:05:53,285] 6614 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:05:53,286] 6615 DEBUG FILE_LOGGER:    ... Arc (ID:a2( t1 -> p2) set
+[2026-07-21 13:05:53,286] 6615 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:05:53,286] 6615 DEBUG FILE_LOGGER:    ... Arc (ID:a3( p2 -> t2) set
+[2026-07-21 13:05:53,286] 6615 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:05:53,287] 6616 DEBUG FILE_LOGGER:    ... Arc (ID:a4( t2 -> p3) set
+[2026-07-21 13:05:53,287] 6616 DEBUG FILE_LOGGER: ... Arc label position: X = 500.0 / Y = 12.0
+[2026-07-21 13:05:53,302] 6631 DEBUG FILE_LOGGER: ##### END PNML EXPORT ##### (50 ms)
+[2026-07-21 13:05:53,302] 6631  INFO FILE_LOGGER: Petrinet saved in file: C:\workspace\bpdi\docs\0306_6_task_automation_tobe.pnml
+[2026-07-21 13:05:53,303] 6632  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-21 13:06:18,903] 32232 DEBUG TRANSLATIONS_LOGGER: Resource not found: QuantAna.Simulation.TooTip.Details
+[2026-07-21 13:06:20,416] 33745  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-21 13:06:39,107] 52436  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
+[2026-07-21 13:06:39,107] 52436  INFO GUI_LOGGER: EXIT WoPeD
+[2026-07-21 13:06:41,969] 0  INFO GUI_LOGGER: INIT APPLICATION
+[2026-07-21 13:06:41,994] 25  INFO CORE_LOGGER: START INIT Application
+[2026-07-21 13:06:41,999] 30  INFO CONFIG_LOGGER: Setting default home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:06:41,999] 30  INFO CONFIG_LOGGER: Loading configuration from: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml.
+[2026-07-21 13:06:42,224] 255  INFO CONFIG_LOGGER: Setting Locale to en_US
+[2026-07-21 13:06:42,231] 262  INFO CONFIG_LOGGER: Setting home directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:06:42,231] 262  INFO CONFIG_LOGGER: Setting current working directory: null
+[2026-07-21 13:06:42,231] 262  INFO CONFIG_LOGGER: Setting current working directory: C:\Users\admin\.WoPeD-3.8.0\nets\
+[2026-07-21 13:06:42,255] 286  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:06:42,267] 298  WARN CONFIG_LOGGER: Configuration file not found: C:\Users\admin\.WoPeD-3.8.0\WoPeDmetrics.xml. Using built-in settings.
+[2026-07-21 13:06:42,296] 327  INFO CONFIG_LOGGER: Configuration successfully loaded.
+[2026-07-21 13:06:42,335] 366  INFO CORE_LOGGER: Look-And-Feel set to com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+[2026-07-21 13:06:42,781] 812  INFO GUI_LOGGER: END  INIT Application
+[2026-07-21 13:06:43,038] 1069 DEBUG QUALANALYSIS_LOGGER: -> init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:06:43,048] 1079 DEBUG QUALANALYSIS_LOGGER: <- init() org.woped.qualanalysis.coverabilitygraph.gui.CoverabilityGraphFrameController
+[2026-07-21 13:06:43,098] 1129 DEBUG FILE_LOGGER: ##### START PNML Version (1.3.2) IMPORT #####
+[2026-07-21 13:06:43,251] 1282 DEBUG QUALANALYSIS_LOGGER: PT Handle Pairs calculated. (0 ms)
+[2026-07-21 13:06:43,251] 1282 DEBUG QUALANALYSIS_LOGGER: TP Handle Pairs calculated. (8 ms)
+[2026-07-21 13:06:43,431] 1462 DEBUG FILE_LOGGER:  ... Place (ID:p1) imported
+[2026-07-21 13:06:43,433] 1464 DEBUG FILE_LOGGER:  ... Place (ID:p2) imported
+[2026-07-21 13:06:43,433] 1464 DEBUG FILE_LOGGER:  ... Place (ID:p3) imported
+[2026-07-21 13:06:43,444] 1475 DEBUG FILE_LOGGER:  ... Transition (ID:t1) imported 
+[2026-07-21 13:06:43,444] 1475 DEBUG FILE_LOGGER:  ... Transition (ID:t2) imported 
+[2026-07-21 13:06:43,452] 1483 DEBUG FILE_LOGGER:  ... Arc created: (ID:a1) p1 -> t1 
+[2026-07-21 13:06:43,452] 1483 DEBUG FILE_LOGGER:  ... Arc created: (ID:a2) t1 -> p2 
+[2026-07-21 13:06:43,452] 1483 DEBUG FILE_LOGGER:  ... Arc created: (ID:a3) p2 -> t2 
+[2026-07-21 13:06:43,452] 1483 DEBUG FILE_LOGGER:  ... Arc created: (ID:a4) t2 -> p3 
+[2026-07-21 13:06:43,493] 1524 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:06:43,495] 1526 DEBUG EDITOR_LOGGER: Net updated. (1 ms)
+[2026-07-21 13:06:43,495] 1526 DEBUG FILE_LOGGER: ##### END PNML IMPORT Version (1.3.2) ##### (397 ms)
+[2026-07-21 13:06:43,497] 1528  INFO CONFIG_LOGGER: Setting current working directory: C:\workspace\bpdi\docs
+[2026-07-21 13:06:43,497] 1528  INFO FILE_LOGGER: Petrinet loaded from file: C:\workspace\bpdi\docs\0306_6_task_automation_tobe.pnml
+[2026-07-21 13:06:46,188] 4219 DEBUG TRANSLATIONS_LOGGER: Resource not found: QuantAna.Simulation.TooTip.Details
+[2026-07-21 13:06:51,092] 9123  INFO QUANTANA_LOGGER: Simulation started...
+[2026-07-21 13:07:19,211] 37242  INFO CONFIG_LOGGER: Configuration successfully saved to: C:\Users\admin\.WoPeD-3.8.0\WoPeDconfig.xml
+[2026-07-21 13:07:19,211] 37242  INFO GUI_LOGGER: EXIT WoPeD
