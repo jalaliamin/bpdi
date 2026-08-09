@@ -1,0 +1,1663 @@
+{
+  "name": "LoanOrigination",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "New loan application",
+        "formDescription": "Please complete the form below to apply for a loan with Nordic Secure.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Applicant name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Personal number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Requested amount SEK",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Loan purpose",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Monthly income SEK"
+            },
+            {
+              "fieldLabel": "Monthly debt payments SEK"
+            },
+            {
+              "fieldLabel": "Employment status",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "permanent"
+                  },
+                  {
+                    "option": "temporary"
+                  },
+                  {
+                    "option": "self_employed"
+                  },
+                  {
+                    "option": "unemployed"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Source of funds"
+            },
+            {
+              "fieldLabel": "Disbursement account owner",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "self"
+                  },
+                  {
+                    "option": "other"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "226add46-e781-4f90-b0c2-74dff6812b61",
+      "name": "Register the loan application",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        352,
+        464
+      ],
+      "webhookId": "c6953b8d-0238-4c39-8320-72c9fd317a78"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f204b3e2-0e01-5333-8262-b31f0e6116a0",
+              "name": "application_id",
+              "value": "=LN-{{ $now.format('yyyy') }}-{{ $itemIndex }}",
+              "type": "string"
+            },
+            {
+              "id": "70c969f6-007d-5f1a-9845-e1fbf86216ab",
+              "name": "applicant_name",
+              "value": "={{ $json['Applicant name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f7b07eb8-64d0-5dfc-91e8-b60a2dbe058b",
+              "name": "personal_number",
+              "value": "={{ $json['Personal number'] }}",
+              "type": "string"
+            },
+            {
+              "id": "fd1a8f43-e4b1-5916-914c-0b1f916f30c0",
+              "name": "requested_amount_sek",
+              "value": "={{ $json['Requested amount SEK'] }}",
+              "type": "number"
+            },
+            {
+              "id": "d4fe860e-5ca4-5f26-ae54-ef826b80a169",
+              "name": "loan_purpose",
+              "value": "={{ $json['Loan purpose'] }}",
+              "type": "string"
+            },
+            {
+              "id": "75e03559-a110-5a79-b465-8e32f466c69a",
+              "name": "monthly_income_sek",
+              "value": "={{ $json['Monthly income SEK'] }}",
+              "type": "number"
+            },
+            {
+              "id": "e03d8b58-50b2-5f2a-a72a-4cdae39268b0",
+              "name": "monthly_debt_payments_sek",
+              "value": "={{ $json['Monthly debt payments SEK'] }}",
+              "type": "number"
+            },
+            {
+              "id": "dadcab0c-bb37-5440-83e1-9341ce135c62",
+              "name": "employment_status",
+              "value": "={{ $json['Employment status'] }}",
+              "type": "string"
+            },
+            {
+              "id": "d6e134c1-462b-5d8f-86d9-92887a441d1b",
+              "name": "source_of_funds",
+              "value": "={{ $json['Source of funds'] }}",
+              "type": "string"
+            },
+            {
+              "id": "63222dd7-97dc-53c0-8f9d-b56bd2d18c51",
+              "name": "disbursement_account_owner",
+              "value": "={{ $json['Disbursement account owner'] }}",
+              "type": "string"
+            },
+            {
+              "id": "5aba7a9c-65b0-5f94-bbc4-7aa4235d3e71",
+              "name": "email",
+              "value": "={{ $json['Email'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1bfb9e94-58a0-5820-8632-84807061e401",
+              "name": "status",
+              "value": "registered",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7a61a995-1964-4b24-8920-66767b05e131",
+      "name": "Normalize application fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        464
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "fa6a3ba8-3e1a-5d3b-b862-9c767bbc63b5",
+              "leftValue": "={{ $json.decision === 'acceptable' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "3e870ad5-9038-4474-9c43-f68723f91fcc",
+      "name": "acceptable credit?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1152,
+        464
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "83c78f67-3381-54c4-b913-2bd236320035",
+              "name": "rejection_reason",
+              "value": "credit_not_acceptable",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bea92725-3ab9-4a48-b66c-dba5aca9c414",
+      "name": "Tag: credit not acceptable",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1584,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a credit risk analyst for a retail bank.\n\nTask:\nAssess this loan application's credit risk using ONLY the data below - never assume a value that was not given.\n\nApplication data:\n- requested_amount_sek: {{ $('Register the loan application').item.json['Requested amount SEK'] }}\n- monthly_income_sek: {{ $('Register the loan application').item.json['Monthly income SEK'] }}\n- monthly_debt_payments_sek: {{ $('Register the loan application').item.json['Monthly debt payments SEK'] }}\n- employment_status: {{ $('Register the loan application').item.json['Employment status'] }}\n\nRules:\n- If monthly_income_sek or monthly_debt_payments_sek is null or missing, output ONLY:\n  { \"insufficient_data\": true, \"missing_fields\": [...] }\n- Otherwise compute dti_ratio and loan_to_income_multiple yourself, then assign risk_score (0-100),\n  risk_level (low/medium/high), and recommendation (auto_approve/manual_review/reject_risk).\n- Output ONLY valid JSON matching the schema you were given. No markdown, no extra keys.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "73928dce-6fe1-44ab-be57-38946ab02db6",
+      "name": "Assess the risk",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1600,
+        144
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "ministral-3:3b",
+        "options": {}
+      },
+      "id": "569b2d83-5eff-4acb-a9e9-a44981ac2c0e",
+      "name": "Ollama Chat Model (risk)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        400
+      ],
+      "credentials": {
+        "ollamaApi": {
+          "id": "AJCUi4GWNkmqAaM6",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"risk_score\": 42,\n  \"risk_level\": \"medium\",\n  \"dti_ratio\": 0.36,\n  \"loan_to_income_multiple\": 2.9,\n  \"recommendation\": \"manual_review\",\n  \"reasoning\": \"One or two sentences citing the specific factors that drove the score.\",\n  \"insufficient_data\": false,\n  \"missing_fields\": []\n}"
+      },
+      "id": "6e359e4c-9986-4db5-9808-7efa1e3a7037",
+      "name": "Risk output schema",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1744,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p><strong>Application {{ $('Normalize application fields').item.json.application_id }}</strong> - {{ $('Normalize application fields').item.json.applicant_name }}, requesting SEK {{ $('Normalize application fields').item.json.requested_amount_sek }} ({{ $('Normalize application fields').item.json.loan_purpose }}).<br>Monthly income SEK {{ $('Normalize application fields').item.json.monthly_income_sek }}, monthly debt SEK {{ $('Normalize application fields').item.json.monthly_debt_payments_sek }}, employment: {{ $('Normalize application fields').item.json.employment_status }}.</p><p><strong>AI risk assessment:</strong> {{ $json.output.risk_level }} (score {{ $json.output.risk_score }}), recommendation: {{ $json.output.recommendation }}.<br><strong>Reasoning:</strong> {{ $json.output.reasoning }}</p><p>Approve to confirm this assessment, or Decline to reject the application.</p>"
+            },
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "decline"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Confirm AI risk assessment"
+        }
+      },
+      "id": "18a53e26-9d48-42b5-ac59-d26958942d69",
+      "name": "Review the risk (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1904,
+        -16
+      ],
+      "webhookId": "bbdb39c7-aa99-55b3-8619-acb728e3fb41"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a fraud/AML screening agent for loan applications.\n\nTask:\n1) Use the tool LoanAMLRulesRAG to retrieve the most relevant AML rule(s) for this application's profile.\n2) Based only on the retrieved rule(s) and the application data below, decide whether this application matches\n   an AML red flag.\n\nApplication data:\n- source_of_funds: {{ $('Register the loan application').item.json['Source of funds'] }}\n- disbursement_account_owner: {{ $('Register the loan application').item.json['Disbursement account owner'] }}\n- loan_purpose: {{ $('Register the loan application').item.json['Loan purpose'] }}\n- employment_status: {{ $('Register the loan application').item.json['Employment status'] }}\n\nRules:\n- You MUST call LoanAMLRulesRAG at least once before deciding.\n- Do NOT invent any rule_id or title.\n- If no relevant rule is retrieved, set matched_rules to an empty array and aml_flag to false.\n- Output ONLY valid JSON matching the schema you were given. No markdown, no extra keys.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "1db95db8-85e3-4a05-a106-5163c5c9ed2b",
+      "name": "Check AML and sanctions check",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1584,
+        544
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "ministral-3:3b",
+        "options": {}
+      },
+      "id": "5e9d50d7-4926-4160-b63d-9d7c9b039879",
+      "name": "Ollama Chat Model (AML)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        736
+      ],
+      "credentials": {
+        "ollamaApi": {
+          "id": "AJCUi4GWNkmqAaM6",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"aml_flag\": true,\n  \"risk_level\": \"medium\",\n  \"matched_rules\": [\n    {\n      \"rule_id\": \"AML-RULE-004\",\n      \"title\": \"Loan Proceeds Redirected to a Third Party\"\n    }\n  ],\n  \"reason\": \"Disbursement account owner is not the applicant and source of funds is an unverified third-party gift, matching the retrieved rule's trigger conditions.\"\n}"
+      },
+      "id": "124c3cc8-ab86-45fe-9b6e-9c33076a5733",
+      "name": "AML output schema",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1728,
+        736
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Search the loan AML rulebook. Use it to identify red flags and required checks for this loan application. Return the most relevant rule(s) with IDs/titles.",
+        "qdrantCollection": {
+          "__rl": true,
+          "mode": "id",
+          "value": "loan_aml_rules"
+        },
+        "topK": 2,
+        "options": {}
+      },
+      "id": "0d388aae-c660-477b-bf0e-c9b211a017f3",
+      "name": "LoanAMLRulesRAG",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        1600,
+        880
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "LPLRXs2TdDgy2Q1h",
+          "name": "QdrantApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "id": "63011e33-779c-4ad8-8a48-b17e8f0c6760",
+      "name": "Embeddings Ollama (AML query)",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        1040
+      ],
+      "credentials": {
+        "ollamaApi": {
+          "id": "AJCUi4GWNkmqAaM6",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p>The AML screening agent failed after its automatic retries for this application. Please review manually against the AML rulebook.</p><p><strong>Applicant:</strong> {{ $('Normalize application fields').item.json.applicant_name }} ({{ $('Normalize application fields').item.json.application_id }})<br><strong>Requested amount:</strong> SEK {{ $('Normalize application fields').item.json.requested_amount_sek }}<br><strong>Source of funds:</strong> {{ $('Normalize application fields').item.json.source_of_funds }}<br><strong>Disbursement account owner:</strong> {{ $('Normalize application fields').item.json.disbursement_account_owner }}<br><strong>Loan purpose:</strong> {{ $('Normalize application fields').item.json.loan_purpose }}<br><strong>Employment status:</strong> {{ $('Normalize application fields').item.json.employment_status }}</p><p>Approve to accept this manual assessment, or Decline to reject the application.</p>"
+            },
+            {
+              "fieldLabel": "AML flag",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "true"
+                  },
+                  {
+                    "option": "false"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Matched rule ids"
+            },
+            {
+              "fieldLabel": "Notes",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "decline"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Manual AML review needed"
+        }
+      },
+      "id": "719f88ca-4814-41bc-b0af-da5dd64a89da",
+      "name": "Review AML and sanctions check manually (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1904,
+        768
+      ],
+      "webhookId": "cdfb25ac-7ed6-5d1b-973f-bc5c4eaf4634"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p><strong>Application {{ $('Normalize application fields').item.json.application_id }}</strong> - {{ $('Normalize application fields').item.json.applicant_name }}.<br>Loan purpose: {{ $('Normalize application fields').item.json.loan_purpose }}. Source of funds: {{ $('Normalize application fields').item.json.source_of_funds }}, disbursement account owner: {{ $('Normalize application fields').item.json.disbursement_account_owner }}.</p><p><strong>AI AML screening result:</strong> aml_flag={{ $json.output.aml_flag }}, risk_level={{ $json.output.risk_level }}.<br><strong>Matched rules:</strong> {{ JSON.stringify($json.output.matched_rules) }}<br><strong>Reason:</strong> {{ $json.output.reason }}</p><p>Approve to confirm, or Decline to reject the application.</p>"
+            },
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "decline"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Confirm AML screening result"
+        }
+      },
+      "id": "97edc552-1325-4f79-bf9c-f4b615255c6c",
+      "name": "Review AML and sanctions check (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1904,
+        528
+      ],
+      "webhookId": "64304d01-52da-54ab-a140-e0021787711c"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "7c15561e-e98b-4b4c-8569-79ecad3d8084",
+      "name": "AND-join: risk + AML",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2464,
+        416
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cd753d88-2a70-5416-b1a9-81fedb8bd4f2",
+              "leftValue": "={{ $json.risk_assessment.declined !== true && $json.aml_assessment.declined !== true && $json.risk_assessment.risk_level !== 'high' && $json.aml_assessment.aml_flag !== true }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a03e67a4-9f8e-4a35-84e6-c472647a393c",
+      "name": "Does the applicant qualify?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2624,
+        416
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "83c78f67-3381-54c4-b913-2bd236320035",
+              "name": "rejection_reason",
+              "value": "={{ $json.risk_assessment.declined === true ? 'risk_declined' : $json.aml_assessment.declined === true ? 'aml_declined' : 'does_not_qualify' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "90f46fbe-f0c4-4446-82d9-8fcf1abfba94",
+      "name": "Tag: does not qualify",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2784,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Draft standard loan contract terms for this approved application.\n\nApplication data:\n- application_id: {{ $('Normalize application fields').item.json.application_id }}\n- applicant_name: {{ $('Normalize application fields').item.json.applicant_name }}\n- requested_amount_sek: {{ $('Normalize application fields').item.json.requested_amount_sek }}\n- loan_purpose: {{ $('Normalize application fields').item.json.loan_purpose }}\n\nRules:\n- Compute a reasonable monthly_installment_sek and term_months from requested_amount_sek.\n- If any required figure cannot be computed, output ONLY: { \"valid\": false }\n- Otherwise output ONLY valid JSON matching the schema you were given.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "40937475-4710-4f45-93df-ec9db9353ea2",
+      "name": "Prepare the loan contract",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2784,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "ministral-3:3b",
+        "options": {}
+      },
+      "id": "7bc6e4d6-6fa5-4632-b041-14a16a33be09",
+      "name": "Ollama Chat Model (contract)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        2784,
+        864
+      ],
+      "credentials": {
+        "ollamaApi": {
+          "id": "AJCUi4GWNkmqAaM6",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"contract_text\": \"Loan agreement between Nordic Secure and the applicant for SEK 175,000 over 36 months...\",\n  \"monthly_installment_sek\": 5350,\n  \"term_months\": 36,\n  \"valid\": true\n}",
+        "autoFix": true
+      },
+      "id": "745e9f2a-6fd2-4103-9da4-00a4fb770e24",
+      "name": "Contract draft schema",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2848,
+        704
+      ]
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p>The contract-drafting agent failed after its automatic retries for this application. Please draft the contract manually.</p><p><strong>Applicant:</strong> {{ $('Normalize application fields').item.json.applicant_name }} ({{ $('Normalize application fields').item.json.application_id }})<br><strong>Requested amount:</strong> SEK {{ $('Normalize application fields').item.json.requested_amount_sek }}<br><strong>Loan purpose:</strong> {{ $('Normalize application fields').item.json.loan_purpose }}</p>"
+            },
+            {
+              "fieldLabel": "Contract text",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Monthly installment SEK",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Term months",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Contract drafting needed"
+        }
+      },
+      "id": "fa7355cc-4957-426b-9252-1d0b89fd8afa",
+      "name": "Write the loan contract (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        3120,
+        592
+      ],
+      "webhookId": "732d94e7-cabb-541d-bbd0-9916051fbea2"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p><strong>Application {{ $('Normalize application fields').item.json.application_id }}</strong> - {{ $('Normalize application fields').item.json.applicant_name }}, SEK {{ $('Normalize application fields').item.json.requested_amount_sek }} ({{ $('Normalize application fields').item.json.loan_purpose }}).</p><p><strong>Draft contract</strong> (AI-generated):<br>{{ $json.output.contract_text }}</p><p><strong>Monthly installment:</strong> SEK {{ $json.output.monthly_installment_sek }}, <strong>term:</strong> {{ $json.output.term_months }} months.</p><p>Review and finalize the contract text below before it is sent for signature.</p>"
+            },
+            {
+              "fieldLabel": "Final contract text",
+              "fieldType": "textarea",
+              "defaultValue": "={{ $json.output.contract_text }}",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Finalize loan contract"
+        }
+      },
+      "id": "c82d6a8f-4770-4dd7-9341-e2edf03f006c",
+      "name": "Check and update the loan contract (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        3120,
+        384
+      ],
+      "webhookId": "2fdf70f7-0737-5a3d-975f-459e354bc55f"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Loan distributed",
+        "completionMessage": "=Dear {{ $('Normalize application fields').item.json.applicant_name }},\n\nYour signed loan {{ $('Normalize application fields').item.json.application_id }} for SEK {{ $('Normalize application fields').item.json.requested_amount_sek }} has been disbursed to your account. Thank you for choosing Nordic Secure.",
+        "options": {}
+      },
+      "id": "67fcf601-986f-4402-8a0f-f4afaa3c1985",
+      "name": "Distribute the loan (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        3696,
+        384
+      ],
+      "webhookId": "e7ca1c42-abb8-5368-ad78-38fa9bea89dc"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p>The risk assessment agent failed after its automatic retries for this application. Please assess the credit risk manually using the details below.</p><p><strong>Applicant:</strong> {{ $('Normalize application fields').item.json.applicant_name }} ({{ $('Normalize application fields').item.json.application_id }})<br><strong>Requested amount:</strong> SEK {{ $('Normalize application fields').item.json.requested_amount_sek }}<br><strong>Loan purpose:</strong> {{ $('Normalize application fields').item.json.loan_purpose }}<br><strong>Monthly income:</strong> SEK {{ $('Normalize application fields').item.json.monthly_income_sek }}<br><strong>Monthly debt payments:</strong> SEK {{ $('Normalize application fields').item.json.monthly_debt_payments_sek }}<br><strong>Employment status:</strong> {{ $('Normalize application fields').item.json.employment_status }}</p><p>Approve to accept this manual assessment, or Decline to reject the application.</p>"
+            },
+            {
+              "fieldLabel": "Risk level",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "low"
+                  },
+                  {
+                    "option": "medium"
+                  },
+                  {
+                    "option": "high"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Notes",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "approve"
+                  },
+                  {
+                    "option": "decline"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Manual risk assessment needed"
+        }
+      },
+      "id": "aeb588ab-7e30-45b7-bce3-bc2f45d0c589",
+      "name": "Assess the risk manually (placeholder)",
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1904,
+        224
+      ],
+      "webhookId": "11d3046c-7e1d-555d-acbb-ea1244505a3a"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Application is rejected",
+        "completionMessage": "=Dear {{ $('Normalize application fields').item.json.applicant_name }},\n\nWe are unable to approve your loan application {{ $('Normalize application fields').item.json.application_id }} for SEK {{ $('Normalize application fields').item.json.requested_amount_sek }}.\n\nReason: {{ $json.rejection_reason }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        2976,
+        1200
+      ],
+      "id": "aefe36fb-2267-44fe-8ea3-564f908e588e",
+      "name": "Send a rejection notice (email placeholder)",
+      "webhookId": "f46fc2e5-1c67-4507-93b0-41baf7766f76"
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n## 📌 Design note\n### pinned test data\n`Register the loan application` has **pinned data** (the pin icon) - a sample applicant (Erik Johansson, `LN-2026-0001`) that n8n replays automatically on every run instead of making you fill the form each time.\n\n**Want to enter your own data?** Right-click the pin icon → **Unpin**. Next run, n8n opens the form for real input.",
+        "height": 300,
+        "width": 416,
+        "color": 4
+      },
+      "id": "51cf915c-7688-48af-bb1a-be91576d964e",
+      "name": "Sticky Note - Pinned test data",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        48,
+        528
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📝 Design note\n\nThis CP registers the application via a **Form Trigger** - but you already know how to do this by email, from **Lab 1**: `Email Trigger (IMAP)` → `Extract from File` → **AI Agent** turning the PDF text into the same fields this form collects directly.",
+        "height": 236,
+        "width": 416,
+        "color": 6
+      },
+      "id": "0e87bdac-228a-4306-8bed-feac15f40d25",
+      "name": "Sticky Note - Email intake alternative",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        48,
+        288
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🔧 Implementation node\n\n\n\n\n\n\n\n\n\n\n\n\nNot every n8n node maps to a BPMN element. Compared to the BPMN model, we need **helper nodes** like this one to actually implement the process.",
+        "height": 456,
+        "width": 220,
+        "color": 2
+      },
+      "id": "9d6139d0-4858-457a-aa39-2a86c84f011b",
+      "name": "Sticky Note - Normalize implementation note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 📩 Design note: \n### forms as message placeholders\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFor every send/receive message in this process (credit check, human reviews, e-signature) we use **Form nodes** to mimic the external party and manually drive a decision while testing - faster to click through than setting up real email/API integrations.\n\nYou could just as easily use **emails** instead (Send and Wait for Response, as in Lab 5) or a **real HTTP call** to an external service - same pattern, different transport.",
+        "height": 452,
+        "width": 400,
+        "color": 3
+      },
+      "id": "8d8a2cec-7a57-462d-bace-16771f0bcd79",
+      "name": "Sticky Note - Forms as message placeholders",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        704,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "html",
+              "html": "=<p>Standing in for a real credit bureau API call.</p><p><strong>Applicant:</strong> {{ $('Normalize application fields').item.json.applicant_name }} ({{ $('Normalize application fields').item.json.application_id }})<br><strong>Personal number:</strong> {{ $('Normalize application fields').item.json.personal_number }}<br><strong>Requested amount:</strong> SEK {{ $('Normalize application fields').item.json.requested_amount_sek }}</p><p>Choose the decision this simulated bureau should return for this test run.</p>"
+            },
+            {
+              "fieldLabel": "decision",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "acceptable"
+                  },
+                  {
+                    "option": "not acceptable"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "Enter Credit Check result"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        912,
+        464
+      ],
+      "id": "b2d127fe-d12b-4986-961e-d059d2e96a42",
+      "name": "Call CreditBureauService (placeholder)",
+      "webhookId": "f2c74b8c-1c81-4a5e-b3fa-be7aab094a6d"
+    },
+    {
+      "parameters": {
+        "content": "## 🔀 XOR Split",
+        "height": 452,
+        "width": 176,
+        "color": 6
+      },
+      "id": "cfcee174-bc7b-416a-a315-8970576aad8f",
+      "name": "Sticky Note - Forms as message placeholders1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## ♻️ Design note: native retry + error output\n\nn8n's AI Agent node supports **Max Tries** (retry on failure) and a separate **error output path** (On Error → Continue Using Error Output) built in.\n\nThat's why we don't need a separate XOR-split to implement the BPMN's retry gateway.\nAlways adjust your implementation to the features your workflow tool actually provides, not a 1:1 copy of the diagram.",
+        "height": 496,
+        "width": 1100,
+        "color": 4
+      },
+      "id": "81737886-ed3f-49d1-ac8b-4101f7fb244b",
+      "name": "Sticky Note - Native retry (risk)",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        768,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 🔀 ANDSplit\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe used a helper task to separate XOR and AND Splits here. ",
+        "height": 452,
+        "width": 192,
+        "color": 2
+      },
+      "id": "baeef0af-240a-4644-a988-2033603e8f11",
+      "name": "Sticky Note - Forms as message placeholders2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1312,
+        368
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        448
+      ],
+      "id": "e31aa681-d685-4ff8-92ca-5a97f29ef537",
+      "name": "AND split helper"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2288,
+        656
+      ],
+      "id": "0a2293f5-ef48-445a-a6f2-8d1e67dc0ea1",
+      "name": "AML XOR-join helper"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2288,
+        96
+      ],
+      "id": "1f3d0443-aa7b-42b1-aec3-3fbae43fd03d",
+      "name": "Risk XOR-join helper"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94052422-670a-57ca-b4dc-fa4285c29172",
+              "name": "risk_assessment",
+              "value": "={{ { risk_level: $('Assess the risk').item.json.risk_level, risk_score: $('Assess the risk').item.json.risk_score, reasoning: $('Assess the risk').item.json.reasoning, source: 'ai_agent', reviewed_by: 'human', declined: $json.Decision === 'decline' } }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "226dd8c9-f912-4af4-ade1-9db686b9b693",
+      "name": "Tag risk_assessment (AI+reviewed)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2096,
+        -16
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ab8df890-defd-586f-ace2-98248733d1d0",
+              "name": "risk_assessment",
+              "value": "={{ { risk_level: $json['Risk level'], reasoning: $json['Notes'], source: 'manual', reviewed_by: 'human', declined: $json.Decision === 'decline' } }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "61f3c4af-db51-4113-a428-27689ba16b9a",
+      "name": "Tag risk_assessment (manual)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2096,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d28dacdb-8f0f-5034-8f11-47190819981d",
+              "name": "aml_assessment",
+              "value": "={{ { aml_flag: $('Check AML and sanctions check').item.json.aml_flag, matched_rules: $('Check AML and sanctions check').item.json.matched_rules, reason: $('Check AML and sanctions check').item.json.reason, source: 'ai_agent', reviewed_by: 'human', declined: $json.Decision === 'decline' } }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6f7765ed-efa4-4cfe-a7e6-396244b869a2",
+      "name": "Tag aml_assessment (AI+reviewed)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2096,
+        528
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3bc1cf4f-fc78-5081-b146-c55aec6e70f0",
+              "name": "aml_assessment",
+              "value": "={{ { aml_flag: $json['AML flag'] === 'true', matched_rules: $json['Matched rule ids'], reason: $json['Notes'], source: 'manual', reviewed_by: 'human', declined: $json.Decision === 'decline' } }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "edd8b74f-5bb8-49c2-a07c-eced2819b8b2",
+      "name": "Tag aml_assessment (manual)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2096,
+        768
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2bd75336-1b39-5d21-8425-c6ab931c90e5",
+              "name": "final_contract",
+              "value": "={{ { contract_text: $json['Final contract text'], monthly_installment_sek: $('Prepare the loan contract').item.json.output.monthly_installment_sek, term_months: $('Prepare the loan contract').item.json.output.term_months, source: 'ai_agent_reviewed' } }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5710fdd0-3197-47b0-891b-6ac8720dd7d8",
+      "name": "Tag: final contract (from review)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3312,
+        384
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f8b0c7a0-336f-549e-bd11-fa997c8ac5fc",
+              "name": "final_contract",
+              "value": "={{ { contract_text: $json['Contract text'], monthly_installment_sek: $json['Monthly installment SEK'], term_months: $json['Term months'], source: 'manual' } }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6e08aa95-128f-472e-b40c-99aa52592651",
+      "name": "Tag: final contract (from manual draft)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3312,
+        592
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        384
+      ],
+      "id": "577d041a-8350-4c8c-88cb-eab6314dc024",
+      "name": "Send the contract for e-signature (placeholder)"
+    }
+  ],
+  "pinData": {
+    "Register the loan application": [
+      {
+        "json": {
+          "Applicant name": "Erik Johansson",
+          "Personal number": "19850312-1234",
+          "Requested amount SEK": "150000",
+          "Loan purpose": "car_purchase",
+          "Monthly income SEK": "42000",
+          "Monthly debt payments SEK": "4500",
+          "Employment status": "permanent",
+          "Source of funds": "salary",
+          "Disbursement account owner": "self",
+          "Email": "erik.johansson@example.com",
+          "submittedAt": "2026-08-09T15:20:07.335+02:00",
+          "formMode": "test"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Assess the risk": [
+      {
+        "json": {
+          "output": {
+            "risk_score": 75,
+            "risk_level": "medium",
+            "dti_ratio": 0.107143,
+            "loan_to_income_multiple": 3.571429,
+            "recommendation": "manual_review",
+            "reasoning": "The debt-to-income (DTI) ratio of approximately 10.7% is relatively low, indicating the borrower can manage monthly debt payments comfortably relative to their income. However, the loan-to-income multiple (~3.57) suggests a significant portion of their income will be allocated toward this loan repayment. While the DTI ratio is favorable, the high loan amount relative to income could pose some risk if economic conditions change. Thus, a manual review is recommended to assess additional factors such as collateral value, existing debt obligations, and overall financial stability.",
+            "insufficient_data": false,
+            "missing_fields": []
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Check AML and sanctions check": [
+      {
+        "json": {
+          "output": {
+            "aml_flag": false,
+            "risk_level": "none",
+            "matched_rules": [],
+            "reason": "The provided loan application data (source_of_funds: salary, disbursement_account_owner: self, loan_purpose: car_purchase, employment_status: permanent) does not match any identified AML red flags. No relevant rules were found to flag this application."
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Prepare the loan contract": [
+      {
+        "json": {
+          "output": {
+            "contract_text": "Lånskontrakt\n\nDessa villkor gäller för lån med ID LN-2026-0 tillfälligt utarbetade för Erik Johansson.\n\n1. **Bördsättningar**:\n   - Lånet belopp: 150 000 SEK\n   - Syfte: Köp av bil\n\n2. **Ränta och avbetalning:\n   - Årlig räntesats: 4,5%\n   - Avbetalningsperiod (term): 60 månader\n   - Årliga avgifter inkluderade i avbetalningen.\n\n3. **Avbetalningsplan:\n   - Årlig totala avbetalning: ca. 2 975 SEK/månad\n   - Den totala lånebeloppet inklusive räntor kommer att återbetalas inom 60 månader.\n\n4. **Pliktiga betalningar:\n   - Lånet ska fullgöras i tid och utan fördröjning.\n   - Vid sen betalning kan det uppkomma extra kostnader.\n\n5. **Andra villkor:\n   - Applikanten måste vara 18 år eller äldre vid låneansökan.\n   - Lånet är beroende av att Erik Johansson godkänner och bekräftar alla villkor.\n\n6. **Avbrytande:\n   - Om lånet inte kan fullgöras enligt överenskommelsen, ska det meddelas omedelbart till långearbetaren.",
+            "monthly_installment_sek": 2975,
+            "term_months": 60,
+            "valid": true
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Register the loan application": {
+      "main": [
+        [
+          {
+            "node": "Normalize application fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize application fields": {
+      "main": [
+        [
+          {
+            "node": "Call CreditBureauService (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "acceptable credit?": {
+      "main": [
+        [
+          {
+            "node": "AND split helper",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tag: credit not acceptable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag: credit not acceptable": {
+      "main": [
+        [
+          {
+            "node": "Send a rejection notice (email placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model (risk)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Assess the risk",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Risk output schema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Assess the risk",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assess the risk": {
+      "main": [
+        [
+          {
+            "node": "Review the risk (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Assess the risk manually (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model (AML)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Check AML and sanctions check",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AML output schema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Check AML and sanctions check",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LoanAMLRulesRAG": {
+      "ai_tool": [
+        [
+          {
+            "node": "Check AML and sanctions check",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama (AML query)": {
+      "ai_embedding": [
+        [
+          {
+            "node": "LoanAMLRulesRAG",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check AML and sanctions check": {
+      "main": [
+        [
+          {
+            "node": "Review AML and sanctions check (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Review AML and sanctions check manually (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AND-join: risk + AML": {
+      "main": [
+        [
+          {
+            "node": "Does the applicant qualify?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Does the applicant qualify?": {
+      "main": [
+        [
+          {
+            "node": "Prepare the loan contract",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tag: does not qualify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag: does not qualify": {
+      "main": [
+        [
+          {
+            "node": "Send a rejection notice (email placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model (contract)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prepare the loan contract",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Contract draft schema",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contract draft schema": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Prepare the loan contract",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare the loan contract": {
+      "main": [
+        [
+          {
+            "node": "Check and update the loan contract (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Write the loan contract (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Review the risk (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Tag risk_assessment (AI+reviewed)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assess the risk manually (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Tag risk_assessment (manual)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Review AML and sanctions check (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Tag aml_assessment (AI+reviewed)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Review AML and sanctions check manually (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Tag aml_assessment (manual)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write the loan contract (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Tag: final contract (from manual draft)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check and update the loan contract (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Tag: final contract (from review)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call CreditBureauService (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "acceptable credit?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AND split helper": {
+      "main": [
+        [
+          {
+            "node": "Assess the risk",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check AML and sanctions check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Risk XOR-join helper": {
+      "main": [
+        [
+          {
+            "node": "AND-join: risk + AML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AML XOR-join helper": {
+      "main": [
+        [
+          {
+            "node": "AND-join: risk + AML",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Tag risk_assessment (AI+reviewed)": {
+      "main": [
+        [
+          {
+            "node": "Risk XOR-join helper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag risk_assessment (manual)": {
+      "main": [
+        [
+          {
+            "node": "Risk XOR-join helper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag aml_assessment (AI+reviewed)": {
+      "main": [
+        [
+          {
+            "node": "AML XOR-join helper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag aml_assessment (manual)": {
+      "main": [
+        [
+          {
+            "node": "AML XOR-join helper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag: final contract (from review)": {
+      "main": [
+        [
+          {
+            "node": "Send the contract for e-signature (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tag: final contract (from manual draft)": {
+      "main": [
+        [
+          {
+            "node": "Send the contract for e-signature (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send the contract for e-signature (placeholder)": {
+      "main": [
+        [
+          {
+            "node": "Distribute the loan (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "51e3b395-a127-4255-9dc7-9172415f98e3",
+  "meta": {
+    "instanceId": "bf14acd7cafa05512a1ff47273c13d266f7511a881eb51f1d70c51a38b02d189"
+  },
+  "id": "AVy347WmfQcQWna1",
+  "tags": []
+}
