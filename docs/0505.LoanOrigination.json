@@ -235,25 +235,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=You are a credit risk analyst for a retail bank.\n\nAll risk figures below have ALREADY been computed by the bank's fixed underwriting rules. Do NOT recompute, second-guess, override, or change any of them.\n\nComputed facts (from rules, not from you):\n- insufficient_data: {{ $json.insufficient_data }}\n- missing_fields: {{ $json.missing_fields }}\n- dti_ratio: {{ $json.dti_ratio }}\n- loan_to_income_multiple: {{ $json.loan_to_income_multiple }}\n- risk_score: {{ $json.risk_score }}\n- risk_level: {{ $json.risk_level }}\n- recommendation: {{ $json.recommendation }}\n\nApplication context (for reference only):\n- requested_amount_sek: {{ $('Normalize application fields').item.json.requested_amount_sek }}\n- monthly_income_sek: {{ $('Normalize application fields').item.json.monthly_income_sek }}\n- monthly_debt_payments_sek: {{ $('Normalize application fields').item.json.monthly_debt_payments_sek }}\n- employment_status: {{ $('Normalize application fields').item.json.employment_status }}\n\nTask:\n- If insufficient_data is true, write one sentence stating the application cannot be scored and naming the missing_fields.\n- Otherwise, write ONLY the reasoning: 1-2 sentences explaining WHY the rules landed on this risk_score/risk_level, citing the specific dti_ratio, loan_to_income_multiple, and employment_status values that drove it. Do not state a different score, level, or recommendation than the ones given to you above.\n- Output ONLY valid JSON matching the schema you were given ({\"reasoning\": \"...\"}). No markdown, no extra keys.",
-        "hasOutputParser": true,
-        "options": {}
-      },
-      "id": "2842271c-470d-4d5b-965b-880223bf7576",
-      "name": "Assess the risk",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 3.1,
-      "position": [
-        2352,
-        1296
-      ],
-      "retryOnFail": true,
-      "maxTries": 2,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
         "model": "ministral-3:3b",
         "options": {}
       },
@@ -262,8 +243,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        2224,
-        1552
+        2512,
+        1520
       ],
       "credentials": {
         "ollamaApi": {
@@ -281,8 +262,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        2368,
-        1520
+        2656,
+        1552
       ]
     },
     {
@@ -291,7 +272,7 @@
           "values": [
             {
               "fieldType": "html",
-              "html": "=<p><strong>Application {{ $('Normalize application fields').item.json.application_id }}</strong> - {{ $('Normalize application fields').item.json.applicant_name }}, requesting SEK {{ $('Normalize application fields').item.json.requested_amount_sek }} ({{ $('Normalize application fields').item.json.loan_purpose }}).<br>Monthly income SEK {{ $('Normalize application fields').item.json.monthly_income_sek }}, monthly debt SEK {{ $('Normalize application fields').item.json.monthly_debt_payments_sek }}, employment: {{ $('Normalize application fields').item.json.employment_status }}.</p><p><strong>AI risk assessment:</strong> {{ $json.risk_level }} (score {{ $json.risk_score }}), recommendation: {{ $json.recommendation }}.<br><strong>Reasoning:</strong> {{ $json.reasoning }}</p><p>Approve to confirm this assessment, or Decline to reject the application.</p>"
+              "html": "=<p><strong>Application {{ $('Normalize application fields').item.json.application_id }}</strong> - {{ $('Normalize application fields').item.json.applicant_name }}, requesting SEK {{ $('Normalize application fields').item.json.requested_amount_sek }} ({{ $('Normalize application fields').item.json.loan_purpose }}).<br>Monthly income SEK {{ $('Normalize application fields').item.json.monthly_income_sek }}, monthly debt SEK {{ $('Normalize application fields').item.json.monthly_debt_payments_sek }}, employment: {{ $('Normalize application fields').item.json.employment_status }}.</p><p><strong>AI risk assessment:</strong> {{ $('Compute risk factors (rules)').item.json.risk_level }} (score {{ $('Compute risk factors (rules)').item.json.risk_score }}), recommendation: {{ $('Compute risk factors (rules)').item.json.recommendation }}.<br><strong>Reasoning:</strong> {{ $json.output.reasoning }}</p><p>Approve to confirm this assessment, or Decline to reject the application.</p>"
             },
             {
               "fieldLabel": "Decision",
@@ -319,8 +300,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        3056,
-        1184
+        2816,
+        1216
       ],
       "webhookId": "bbdb39c7-aa99-55b3-8619-acb728e3fb41"
     },
@@ -534,8 +515,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        3568,
-        1504
+        3456,
+        1456
       ]
     },
     {
@@ -568,8 +549,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3728,
-        1504
+        3616,
+        1456
       ]
     },
     {
@@ -591,8 +572,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3888,
-        2128
+        3776,
+        2080
       ]
     },
     {
@@ -607,8 +588,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        3888,
-        1488
+        3776,
+        1440
       ],
       "retryOnFail": true,
       "maxTries": 2,
@@ -624,8 +605,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        3888,
-        1952
+        3776,
+        1904
       ],
       "credentials": {
         "ollamaApi": {
@@ -644,8 +625,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        3952,
-        1792
+        3840,
+        1744
       ]
     },
     {
@@ -680,8 +661,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        4224,
-        1680
+        4112,
+        1632
       ],
       "webhookId": "732d94e7-cabb-541d-bbd0-9916051fbea2"
     },
@@ -710,8 +691,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        4224,
-        1472
+        4112,
+        1424
       ],
       "webhookId": "2fdf70f7-0737-5a3d-975f-459e354bc55f"
     },
@@ -727,8 +708,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        4800,
-        1472
+        4688,
+        1424
       ],
       "webhookId": "e7ca1c42-abb8-5368-ad78-38fa9bea89dc"
     },
@@ -789,8 +770,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        2688,
-        1392
+        2816,
+        1424
       ],
       "webhookId": "11d3046c-7e1d-555d-acbb-ea1244505a3a"
     },
@@ -804,8 +785,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        4080,
-        2336
+        3968,
+        2352
       ],
       "id": "56905fcb-95f7-42fd-ab17-782e2be355c9",
       "name": "Send a rejection notice (email placeholder)",
@@ -932,8 +913,8 @@
     {
       "parameters": {
         "content": "## ♻️ Design note: native retry + error output\n\nn8n's AI Agent node supports **Max Tries** (retry on failure) and a separate **error output path** (On Error → Continue Using Error Output) built in.\n\nThat's why we don't need a separate XOR-split to implement the BPMN's retry gateway.\nAlways adjust your implementation to the features your workflow tool actually provides, not a 1:1 copy of the diagram.",
-        "height": 496,
-        "width": 1100,
+        "height": 672,
+        "width": 332,
         "color": 4
       },
       "id": "21a9dddb-a9e4-47a8-a102-24e9a898956b",
@@ -941,8 +922,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1392,
-        1184
+        2464,
+        1008
       ]
     },
     {
@@ -977,7 +958,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3392,
+        3280,
         1680
       ],
       "id": "f5b12b10-6345-4edb-bd83-bd97b2019fa2",
@@ -988,8 +969,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3392,
-        1184
+        3264,
+        1216
       ],
       "id": "967ab614-74dd-4f13-a87f-a47e7879c309",
       "name": "Risk XOR-join helper"
@@ -1001,7 +982,7 @@
             {
               "id": "94052422-670a-57ca-b4dc-fa4285c29172",
               "name": "risk_assessment",
-              "value": "={{ { risk_level: $('Combine risk score with AI reasoning').item.json.risk_level, risk_score: $('Combine risk score with AI reasoning').item.json.risk_score, dti_ratio: $('Combine risk score with AI reasoning').item.json.dti_ratio, loan_to_income_multiple: $('Combine risk score with AI reasoning').item.json.loan_to_income_multiple, recommendation: $('Combine risk score with AI reasoning').item.json.recommendation, reasoning: $('Combine risk score with AI reasoning').item.json.reasoning, source: 'ai_agent', reviewed_by: 'human', declined: $json.Decision === 'decline' } }}",
+              "value": "={{ \n{ risk_level: $('Compute risk factors (rules)').item.json.risk_score, \nrisk_score: $('Compute risk factors (rules)').item.json.risk_score, \ndti_ratio: $('Compute risk factors (rules)').item.json.dti_ratio, \nloan_to_income_multiple: $('Compute risk factors (rules)').item.json.loan_to_income_multiple, \nrecommendation: $('Compute risk factors (rules)').item.json.recommendation, \nreasoning: $('Elaborate the risk reason').item.json.output.reasoning, \nsource: 'ai_agent', \nreviewed_by: 'human', \ndeclined: $json.Decision === 'decline' \n} \n}}",
               "type": "object"
             }
           ]
@@ -1013,8 +994,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3216,
-        1184
+        3024,
+        1216
       ]
     },
     {
@@ -1036,8 +1017,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3216,
-        1392
+        3024,
+        1424
       ]
     },
     {
@@ -1105,8 +1086,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4416,
-        1472
+        4304,
+        1424
       ]
     },
     {
@@ -1128,8 +1109,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4416,
-        1680
+        4304,
+        1632
       ]
     },
     {
@@ -1137,8 +1118,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4624,
-        1472
+        4512,
+        1424
       ],
       "id": "1d744cea-ab83-44fe-b7e0-50de8aa79800",
       "name": "Send the contract for e-signature (placeholder)"
@@ -1152,73 +1133,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2224,
+        2176,
         1296
-      ]
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "c4a1d2e3-4f5a-4b6c-8d7e-9f0a1b2c3d4e",
-              "name": "insufficient_data",
-              "value": "={{ $('Compute risk factors (rules)').item.json.insufficient_data }}",
-              "type": "boolean"
-            },
-            {
-              "id": "d5b2e3f4-5a6b-4c7d-9e8f-0a1b2c3d4e5f",
-              "name": "missing_fields",
-              "value": "={{ $('Compute risk factors (rules)').item.json.missing_fields }}",
-              "type": "array"
-            },
-            {
-              "id": "e6c3f4a5-6b7c-4d8e-af9a-1b2c3d4e5f6a",
-              "name": "dti_ratio",
-              "value": "={{ $('Compute risk factors (rules)').item.json.dti_ratio }}",
-              "type": "number"
-            },
-            {
-              "id": "f7d4a5b6-7c8d-4e9f-b0ab-2c3d4e5f6a7b",
-              "name": "loan_to_income_multiple",
-              "value": "={{ $('Compute risk factors (rules)').item.json.loan_to_income_multiple }}",
-              "type": "number"
-            },
-            {
-              "id": "a8e5b6c7-8d9e-4faf-c1bc-3d4e5f6a7b8c",
-              "name": "risk_score",
-              "value": "={{ $('Compute risk factors (rules)').item.json.risk_score }}",
-              "type": "number"
-            },
-            {
-              "id": "b9f6c7d8-9eaf-4a0b-d2cd-4e5f6a7b8c9d",
-              "name": "risk_level",
-              "value": "={{ $('Compute risk factors (rules)').item.json.risk_level }}",
-              "type": "string"
-            },
-            {
-              "id": "cae7d8e9-af0b-4b1c-e3de-5f6a7b8c9dae",
-              "name": "recommendation",
-              "value": "={{ $('Compute risk factors (rules)').item.json.recommendation }}",
-              "type": "string"
-            },
-            {
-              "id": "dbf8e9fa-b01c-4c2d-f4ef-6a7b8c9daebf",
-              "name": "reasoning",
-              "value": "={{ $json.output.reasoning }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "788d0bce-d331-4ce7-973a-f8491c23b7da",
-      "name": "Combine risk score with AI reasoning",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2688,
-        1168
       ]
     },
     {
@@ -1250,8 +1166,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2864,
-        1168
+        2336,
+        1296
       ]
     },
     {
@@ -1273,8 +1189,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3216,
-        1008
+        2816,
+        1040
       ]
     },
     {
@@ -1362,6 +1278,40 @@
         1344
       ],
       "webhookId": "5af67a5f-a07e-46df-b205-1441cefef24a"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a credit risk analyst for a retail bank.\n\nAll risk figures below have ALREADY been computed by the bank's fixed underwriting rules. Do NOT recompute, second-guess, override, or change any of them.\n\nComputed facts (from rules, not from you):\n- insufficient_data: {{ $json.insufficient_data }}\n- missing_fields: {{ $json.missing_fields }}\n- dti_ratio: {{ $json.dti_ratio }}\n- loan_to_income_multiple: {{ $json.loan_to_income_multiple }}\n- risk_score: {{ $json.risk_score }}\n- risk_level: {{ $json.risk_level }}\n- recommendation: {{ $json.recommendation }}\n\nApplication context (for reference only):\n- requested_amount_sek: {{ $('Normalize application fields').item.json.requested_amount_sek }}\n- monthly_income_sek: {{ $('Normalize application fields').item.json.monthly_income_sek }}\n- monthly_debt_payments_sek: {{ $('Normalize application fields').item.json.monthly_debt_payments_sek }}\n- employment_status: {{ $('Normalize application fields').item.json.employment_status }}\n\nTask:\n- If insufficient_data is true, write one sentence stating the application cannot be scored and naming the missing_fields.\n- Otherwise, write ONLY the reasoning: 1-2 sentences explaining WHY the rules landed on this risk_score/risk_level, citing the specific dti_ratio, loan_to_income_multiple, and employment_status values that drove it. Do not state a different score, level, or recommendation than the ones given to you above.\n- Output ONLY valid JSON matching the schema you were given ({\"reasoning\": \"...\"}). No markdown, no extra keys.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "2842271c-470d-4d5b-965b-880223bf7576",
+      "name": "Elaborate the risk reason",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2512,
+        1312
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "## 📝 Rule-based Risk Assessment\n\nWe use rules to assess the risk, which enables auto-approval. It also change the role of the next AI-agent as it will not assess thr risk anymore; rather, providing the reason of the risk to human to decide.",
+        "height": 672,
+        "width": 304
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2144,
+        1008
+      ],
+      "id": "9a4bc893-2405-472b-901c-3991cc65a409",
+      "name": "Sticky Note"
     }
   ],
   "pinData": {
@@ -1408,13 +1358,13 @@
           "Personal number": "19850312-1234",
           "Requested amount SEK": "150000",
           "Loan purpose": "Business loan - my business is an unregistered currency exchange kiosk",
-          "Monthly income SEK": "42000",
+          "Monthly income SEK": "4200",
           "Monthly debt payments SEK": "4500",
           "Employment status": "self_employed",
-          "Source of funds": "salary",
+          "Source of funds": "borrowed",
           "Disbursement account owner": "self",
           "Email": "erik.johansson@example.com",
-          "submittedAt": "2026-08-11T09:14:34.038+02:00",
+          "submittedAt": "2026-08-11T09:52:17.867+02:00",
           "formMode": "test"
         },
         "pairedItem": {
@@ -1479,7 +1429,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Assess the risk",
+            "node": "Elaborate the risk reason",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -1490,26 +1440,8 @@
       "ai_outputParser": [
         [
           {
-            "node": "Assess the risk",
+            "node": "Elaborate the risk reason",
             "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Assess the risk": {
-      "main": [
-        [
-          {
-            "node": "Combine risk score with AI reasoning",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Assess the risk manually (placeholder)",
-            "type": "main",
             "index": 0
           }
         ]
@@ -1858,17 +1790,6 @@
       "main": [
         [
           {
-            "node": "Assess the risk",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Combine risk score with AI reasoning": {
-      "main": [
-        [
-          {
             "node": "auto-approved?",
             "type": "main",
             "index": 0
@@ -1887,7 +1808,7 @@
         ],
         [
           {
-            "node": "Review the risk (placeholder)",
+            "node": "Elaborate the risk reason",
             "type": "main",
             "index": 0
           }
@@ -1915,6 +1836,24 @@
           }
         ]
       ]
+    },
+    "Elaborate the risk reason": {
+      "main": [
+        [
+          {
+            "node": "Review the risk (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Assess the risk manually (placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -1923,7 +1862,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "87e3c401-e096-411a-a6af-10d67823367d",
+  "versionId": "54c4ef66-3957-4276-88cf-35488d4ca9d2",
   "meta": {
     "instanceId": "bf14acd7cafa05512a1ff47273c13d266f7511a881eb51f1d70c51a38b02d189"
   },
